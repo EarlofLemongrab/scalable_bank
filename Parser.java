@@ -79,7 +79,7 @@ public class Parser {
                     "(ID SERIAL PRIMARY KEY      NOT NULL," +
                     " From_account           INT    NOT NULL, " +
                     " To_account           INT    NOT NULL, " +
-                    
+
                     " Amount            real)";
             stmt.executeUpdate(create_transaction);
 
@@ -708,7 +708,7 @@ public class Parser {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             DOMSource source = new DOMSource(outputdoc);
-            StreamResult result = new StreamResult(new File("/Users/Dong/Desktop/output.xml"));
+            StreamResult result = new StreamResult(new File(output));
 
             // Output to console for testing
             // StreamResult result = new StreamResult(System.out);
