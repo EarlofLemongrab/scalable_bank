@@ -21,29 +21,10 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Collections;
+
 
 public class Parser {
-    private static final Map<String, String> relationMap = createMap();
-    private static Map<String, String> createMap()
-    {
-        Map<String,String> myMap = new HashMap<String,String>();
-        myMap.put("equal", "=");
-        myMap.put("greater", ">");
-        myMap.put("less", "<");
-        return myMap;
-    }
-    private static final Map<String, String> columnMap = createmap();
-    private static Map<String, String> createmap()
-    {
-        Map<String,String> myMap = new HashMap<String,String>();
-        myMap.put("from", "from_account");
-        myMap.put("to", "to_account");
-        myMap.put("amount", "amount");
-        return myMap;
-    }
+
     public static void parse(String input, String output) {
 
         try {
@@ -98,6 +79,7 @@ public class Parser {
                     "(ID SERIAL PRIMARY KEY      NOT NULL," +
                     " From_account           INT    NOT NULL, " +
                     " To_account           INT    NOT NULL, " +
+                    
                     " Amount            real)";
             stmt.executeUpdate(create_transaction);
 
@@ -215,6 +197,7 @@ public class Parser {
                     NodeList Tags = eElement.getElementsByTagName("tag");
                     for (int i = 0; i < Tags.getLength(); i++) {
                         System.out.println("Tag : " + Tags.item(i).getTextContent());
+
                     }
                     transactions.add(t);
                     String update_transaction = "INSERT INTO transaction(from_account,to_account,amount) VALUES ("+t.getFrom()+","+t.getTo()+","+Double.parseDouble(t.getBalance())+");";
