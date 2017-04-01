@@ -44,7 +44,7 @@ public class Parser {
         myMap.put("amount", "amount");
         return myMap;
     }
-    public static void main(String argv[]) {
+    public static void parse(String input, String output) {
 
         try {
 
@@ -135,7 +135,7 @@ public class Parser {
 
 
         try {
-            File fXmlFile = new File("/Users/Dong/Desktop/c.xml");
+            File fXmlFile = new File(input);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
@@ -751,7 +751,7 @@ public class Parser {
                 tce.printStackTrace();
             }
             DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File("/Users/Dong/Desktop/output.xml"));
+            StreamResult result = new StreamResult(new File(output));
 
             // Output to console for testing
             // StreamResult result = new StreamResult(System.out);
