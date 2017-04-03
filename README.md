@@ -11,3 +11,4 @@ by Dong Long and Meilong Pan<br />
   c.create a new database named bank<br />
 4.set input xml's location & output xml's location in bank_st,main function<br />
 5.run bank_st<br />
+6.run client<br />
